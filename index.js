@@ -13,15 +13,11 @@ program.parse(process.argv);
 
 const argv = program.opts();
 
-// TODO: refaktor
 async function invokeAction({ action, id, name, email, phone }) {
 	switch (action) {
 		case 'list':
-			// console.time();
 			const allContacts = await contacts.listContacts();
 			console.table(allContacts);
-			// console.timeEnd();
-
 			break;
 
 		case 'get':
@@ -30,13 +26,11 @@ async function invokeAction({ action, id, name, email, phone }) {
 			break;
 
 		case 'add':
-			//... name email phone
 			const addContact = await contacts.addContact(name, email, phone);
 			console.log(addContact);
 			break;
 
 		case 'remove':
-			// ... id
 			const removeContact = await contacts.removeContact(id);
 			console.table(removeContact);
 			break;
@@ -47,12 +41,3 @@ async function invokeAction({ action, id, name, email, phone }) {
 }
 
 invokeAction(argv);
-
-/*
-// functions performance
-	console.time();
-	
-		console.log(contacts);
-					
-	console.timeEnd();
-*/

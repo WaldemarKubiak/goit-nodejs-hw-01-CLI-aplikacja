@@ -4,9 +4,7 @@ const path = require('node:path');
 require('colors');
 
 const contactsPath = path.join(__dirname, 'db/contacts.json');
-// console.log('AbsolutePath:', contactsPath);
 
-// The function returns an array of contacts
 const listContacts = async () => {
 	try {
 		const contacts = await fs.readFile(contactsPath, 'utf8');
@@ -17,7 +15,6 @@ const listContacts = async () => {
 	}
 };
 
-// Function returns one contact with the given contact Id from listContacts
 const getContactById = async contactId => {
 	try {
 		const contacts = await listContacts();
@@ -30,7 +27,6 @@ const getContactById = async contactId => {
 	}
 };
 
-// The function adds a new contact to the table with contacts list
 const addContact = async (name, email, phone) => {
 	try {
 		const contacts = await listContacts();
@@ -49,7 +45,6 @@ const addContact = async (name, email, phone) => {
 	}
 };
 
-// The function deletes the contact with the given id
 const removeContact = async contactId => {
 	try {
 		const contacts = await listContacts();
